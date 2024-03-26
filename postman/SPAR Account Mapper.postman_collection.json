@@ -1,0 +1,935 @@
+{
+	"info": {
+		"_postman_id": "7d5d5544-5231-48bf-ae20-95f65b22983f",
+		"name": "SPAR Account Mapper",
+		"description": "\n    This module implements G2P ID Account Mapper (Financial Address Mapper).\n\n    ***********************************\n    Further details goes here\n    ***********************************\n    \n\nContact Support:\n Email: info@openg2p.org",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15110875"
+	},
+	"item": [
+		{
+			"name": "mapper",
+			"item": [
+				{
+					"name": "sync",
+					"item": [
+						{
+							"name": "mapper/sync/link",
+							"item": [
+								{
+									"name": "link single id and fa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"succ\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:WJAYKEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\n        \"fa\": \"account:34254change5@pth.dfsp1.bank\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "link multiple ids with fas",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"succ\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:WJAYKEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\n        \"fa\": \"account:asfdsdg241324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      },\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:2OsmelWj9gTM55zHIdX8-Y2u2GfOZm_7W8LFz2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh241324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Invalid Action",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"Body matches message\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Received Invalid action in header for 'resolve'.\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"string\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:2OsmelWj9gTM55zHIdX8-Y2u2GfOZm_7W8LFz2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh241324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Link with Invalid Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body contains string\",() => {\r",
+													"  pm.expect(pm.response.text()).to.include(\"Mapping not found against given ID\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:2OsmelWj9gHIdX8-Y2u2GfOZm_7W8LFz2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh241324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "link id with empty fa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"rjct\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:token:H6BgiOTvh3q1MU6iUd0moSeSlZJN_lxRdSXnK7DjGxs@nationalId\",\n        \"fa\": \"\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "link empty id with fa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"rjct\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"\",\n        \"fa\": \"account:asfd78dh241324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "link already mapped Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Duplicate Id Exists\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Duplicate ID exists.\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"signature\": \"string\",\r\n  \"header\": {\r\n    \"version\": \"1.0.0\",\r\n    \"message_id\": \"string\",\r\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\r\n    \"action\": \"link\",\r\n    \"sender_id\": \"string\",\r\n    \"sender_uri\": \"\",\r\n    \"receiver_id\": \"\",\r\n    \"total_count\": 0,\r\n    \"is_msg_encrypted\": false,\r\n    \"meta\": {}\r\n  },\r\n  \"message\": {\r\n    \"transaction_id\": \"string\",\r\n    \"link_request\": [\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"id\": \"token:WJAYKEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"fa\": \"account:asfdsdg241324@rainbow.dfsp2.bank_acc\",\r\n        \"name\": \"string\",\r\n        \"phone_number\": \"string\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"id\": \"token:2OsmelWj9gTM55zHIdX8-Y2u2GfOZm_7W8LFz2Hvnvg@nationalId\",\r\n        \"fa\": \"account:asfdsdh241324@rainbow.dfsp2.bank_acc\",\r\n        \"name\": \"string\",\r\n        \"phone_number\": \"string\"\r\n      }\r\n    ]\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/link",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"link"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "mapper/sync/resolve",
+							"item": [
+								{
+									"name": "fetch single fa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body contains FA\",() => {\r",
+													"  pm.expect(pm.response.text()).to.include(\"account\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-02-29T16:24:07.899Z\",\n    \"action\": \"resolve\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"resolve_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"fa\": \"\",\n        \"id\": \"token:-tBjev6V7eT4pfU2IkGrC-BtRg9nypcXEakQ69ZkdSc@nationalId\",\n        \"name\": \"string\",\n        \"scope\": \"details\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/resolve",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"resolve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "fetch multiple fas",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body contains FA\",() => {\r",
+													"  pm.expect(pm.response.text()).to.include(\"succ\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"signature\": \"string\",\r\n  \"header\": {\r\n    \"version\": \"1.0.0\",\r\n    \"message_id\": \"string\",\r\n    \"message_ts\": \"2024-02-29T16:24:07.899Z\",\r\n    \"action\": \"resolve\",\r\n    \"sender_id\": \"string\",\r\n    \"sender_uri\": \"\",\r\n    \"receiver_id\": \"\",\r\n    \"total_count\": 0,\r\n    \"is_msg_encrypted\": false,\r\n    \"meta\": {}\r\n  },\r\n  \"message\": {\r\n    \"transaction_id\": \"string\",\r\n    \"resolve_request\": [\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:2OsmelWj9gTM55zHIdX8-Y2u2GfOZm_7W8LFz2Hvnvg@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:WJAYKEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:token:H6BgiOTvh3q1MU6iUd0moSeSlZJN_lxRdSXnK7DjGxs@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:qTwfCZT-lRWe6Md6u1n4iSpakA-dJwql2ljqs3g9ZBo@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:GsDz_KAwQ4KqJaUiujJOJGfjHcqZiXnotURuPpF05YY@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:UFWsCwBDRBbDRPZmzeYSMWWilvf1qRswWSESYHIptgU@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:-tBjev6V7eT4pfU2IkGrC-BtRg9nypcXEakQ69ZkdSc@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:token:H6BgiOTvh3q1MU6iUd0moSeSlZJN_lxRdSXnK7DjGxs@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:WJAYEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:WJAYEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:WJAYEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:WJAYEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      },\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:WJAYEpFXedOVQwDGXv98bS8hTJPI-yBb4ZSrHwZQ24@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      }\r\n    ]\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/resolve",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"resolve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "fetch fa with invalid Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body contains string\",() => {\r",
+													"  pm.expect(pm.response.text()).to.include(\"Mapping not found against given ID\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"signature\": \"string\",\r\n  \"header\": {\r\n    \"version\": \"1.0.0\",\r\n    \"message_id\": \"string\",\r\n    \"message_ts\": \"2024-02-29T16:24:07.899Z\",\r\n    \"action\": \"resolve\",\r\n    \"sender_id\": \"string\",\r\n    \"sender_uri\": \"\",\r\n    \"receiver_id\": \"\",\r\n    \"total_count\": 0,\r\n    \"is_msg_encrypted\": false,\r\n    \"meta\": {}\r\n  },\r\n  \"message\": {\r\n    \"transaction_id\": \"string\",\r\n    \"resolve_request\": [\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:UFWsCwBDRsadasdaRPZmzeYSMWWilvf1qRswWSESYHIptg@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      }\r\n    ]\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/resolve",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"resolve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "fetch fa with invalid Action",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"Body matches message\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Received Invalid action in header for 'resolve'.\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"signature\": \"string\",\r\n  \"header\": {\r\n    \"version\": \"1.0.0\",\r\n    \"message_id\": \"string\",\r\n    \"message_ts\": \"2024-02-29T16:24:07.899Z\",\r\n    \"action\": \"\",\r\n    \"sender_id\": \"string\",\r\n    \"sender_uri\": \"\",\r\n    \"receiver_id\": \"\",\r\n    \"total_count\": 0,\r\n    \"is_msg_encrypted\": false,\r\n    \"meta\": {}\r\n  },\r\n  \"message\": {\r\n    \"transaction_id\": \"string\",\r\n    \"resolve_request\": [\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"token:2OsmelWj9gTM55zHIdX8-Y2u2GfOZm_7W8LFz2Hvnvg@nationalId\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      }\r\n    ]\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/resolve",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"resolve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "fetch fa with empty id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"signature\": \"string\",\r\n  \"header\": {\r\n    \"version\": \"1.0.0\",\r\n    \"message_id\": \"string\",\r\n    \"message_ts\": \"2024-02-29T16:24:07.899Z\",\r\n    \"action\": \"resolve\",\r\n    \"sender_id\": \"string\",\r\n    \"sender_uri\": \"\",\r\n    \"receiver_id\": \"\",\r\n    \"total_count\": 0,\r\n    \"is_msg_encrypted\": false,\r\n    \"meta\": {}\r\n  },\r\n  \"message\": {\r\n    \"transaction_id\": \"string\",\r\n    \"resolve_request\": [\r\n      {\r\n        \"reference_id\": \"string\",\r\n        \"timestamp\": \"2024-02-29T16:24:07.899Z\",\r\n        \"additional_info\": [\r\n          {\r\n            \"name\": \"string\",\r\n            \"value\": 0\r\n          }\r\n        ],\r\n        \"locale\": \"eng\",\r\n        \"fa\": \"\",\r\n        \"id\": \"\",\r\n        \"name\": \"string\",\r\n        \"scope\": \"details\"\r\n      }\r\n    ]\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/resolve",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"resolve"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "mapper/sync/update",
+							"item": [
+								{
+									"name": "update single id and fa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"succ\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-11T18:23:39.498Z\",\n    \"action\": \"update\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"update_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh23ddfr24@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update multiple ids with fas",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body matches string\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"succ\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-11T18:23:39.498Z\",\n    \"action\": \"update\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"update_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh24fdgs5324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      },\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh24fdgs5324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      },\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh24fdgs5324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      },\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh24fdgs5324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      },\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh24fdgs5324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update fa with Invalid Action",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"Body matches message\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"Received Invalid action in header for 'resolve'.\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-11T18:23:39.498Z\",\n    \"action\": \"string\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"update_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj9gTM55zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh23ddfr24@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update fa with Invalid Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Body contains string\",() => {\r",
+													"  pm.expect(pm.response.text()).to.include(\"Invalid Input. Field require\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-11T18:23:39.498Z\",\n    \"action\": \"update\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"update_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-11T18:23:39.498Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:smelWj95zHIdX8-u2GfOZm_7W8z2Hvnvg@nationalId\",\n        \"fa\": \"account:asfdsdh23ddfr24@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update id with empty fa",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"token:GsDz_KAwQ4KqJaUiujJOJGfjHcqZiXnotURuPpF05YY@nationalId\",\n        \"fa\": \"\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update with empty id with fa",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"signature\": \"string\",\n  \"header\": {\n    \"version\": \"1.0.0\",\n    \"message_id\": \"string\",\n    \"message_ts\": \"2024-03-06T09:32:48.724Z\",\n    \"action\": \"link\",\n    \"sender_id\": \"string\",\n    \"sender_uri\": \"\",\n    \"receiver_id\": \"\",\n    \"total_count\": 0,\n    \"is_msg_encrypted\": false,\n    \"meta\": {}\n  },\n  \"message\": {\n    \"transaction_id\": \"string\",\n    \"link_request\": [\n      {\n        \"reference_id\": \"string\",\n        \"timestamp\": \"2024-03-06T09:32:48.724Z\",\n        \"additional_info\": [\n          {\n            \"name\": \"string\",\n            \"value\": 0\n          }\n        ],\n        \"locale\": \"eng\",\n        \"id\": \"\",\n        \"fa\": \"account:asfd78dh241324@rainbow.dfsp2.bank_acc\",\n        \"name\": \"string\",\n        \"phone_number\": \"string\"\n      }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mapper/sync/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mapper",
+												"sync",
+												"update"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/mapper/v1",
+			"type": "string"
+		}
+	]
+}
