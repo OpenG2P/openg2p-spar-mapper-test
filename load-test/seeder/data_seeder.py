@@ -4,10 +4,10 @@ import datetime
 
 # Database connection parameters
 db_params = {
-    "dbname": "spardb",
-    "user": "postgres",
-    "password": "6hpHncKeC3",
-    "host": "explore.openg2p.net",
+    "dbname": "spardb",  # Change this to your database name
+    "user": "postgres",  # Change this to your database username
+    "password": "postgres",  # Change this to your database password
+    "host": "opeg2p.sandbox.net",  # Change this to your database host
     "port": "5433",
 }
 
