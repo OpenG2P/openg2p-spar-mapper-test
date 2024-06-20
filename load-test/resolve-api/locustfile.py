@@ -51,7 +51,6 @@ class ResolveRequest(HttpUser):
         response = self.client.post(
             "/sync/resolve", data=json.dumps(payload), headers=headers
         )
-
         # Log the response to see the record randomization
         # print(
         #     "0th Record:",
