@@ -8,8 +8,8 @@ import uuid
 class UnlinkRequest(HttpUser):
     TOTAL_DB_RECORDS = 1000  # Total records in the database
     REQUEST_COUNT_IN_SINGLE_API = 100  # Requests per batch
-    user_counter = 0  # Global counter for user instances
-    request_id_counter = 1  # Global counter for request IDs
+    USER_COUNTER = 0  # Global counter for user instances
+    REQUEST_ID_COUNTER = 1  # Global counter for request IDs
     completion_semaphore = BoundedSemaphore()
     COMPLETED_REQUESTS=0
     def __init__(self, *args, **kwargs):
@@ -18,8 +18,8 @@ class UnlinkRequest(HttpUser):
         self.start_id = 0  
         self.end_id = 0  
         self.local_completed_requests = 0  # Counter for completed requests per user
-        self.user_index = UnlinkRequest.user_counter
-        UnlinkRequest.user_counter += 1
+        self.user_index = UnlinkRequest.USER_COUNTER
+        UnlinkRequest.USER_COUNTER += 1
 
     def calculate_requests_per_user(self):
         if self.environment.runner and self.environment.runner.user_count > 0:
@@ -37,9 +37,9 @@ class UnlinkRequest(HttpUser):
 
     def assign_id_range(self):
         with UnlinkRequest.completion_semaphore:
-            self.start_id = UnlinkRequest.request_id_counter
-            UnlinkRequest.request_id_counter += UnlinkRequest.REQUEST_COUNT_IN_SINGLE_API
-            self.end_id = UnlinkRequest.request_id_counter - 1
+            self.start_id = UnlinkRequest.REQUEST_ID_COUNTER
+            UnlinkRequest.REQUEST_ID_COUNTER += UnlinkRequest.REQUEST_COUNT_IN_SINGLE_API
+            self.end_id = UnlinkRequest.REQUEST_ID_COUNTER - 1
 
         print(f"User {self.user_index} ID range: {self.start_id} - {self.end_id}")
 
