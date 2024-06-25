@@ -7,7 +7,7 @@ db_params = {
     "dbname": "spardb",  # Change this to your database name
     "user": "postgres",  # Change this to your database username
     "password": "postgres",  # Change this to your database password
-    "host": "opeg2p.sandbox.net",  # Change this to your database host
+    "host": "localhost",  # Change this to your database host
     "port": "5433",
 }
 
@@ -28,7 +28,7 @@ def create_record(
     )
 
 
-def insert_records_bulk(records, batch_size=1000):
+def insert_records_bulk(records, batch_size=100):
     connection = None
     try:
         # Connect to the database
@@ -75,8 +75,8 @@ def generate_records(starting_id, end_id):
 
 # Number of records to insert
 STARTING_ID = 1
-END_ID = 10000000
-BATCH_SIZE = 5000  # Adjust the batch size as needed
+END_ID = 1000
+BATCH_SIZE = 100  # Adjust the batch size as needed
 
 # Generate records
 print(f"Generating {END_ID} records...")
